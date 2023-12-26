@@ -18,8 +18,11 @@
     "@angular/platform-browser": "^17.0.0",
     "@angular/platform-browser-dynamic": "^17.0.0",
     "@angular/router": "^17.0.0",
+    "jquery": "^3.7.1",
     "rxjs": "~7.8.0",
+    "sass": "^1.69.5",
     "tslib": "^2.3.0",
+    "uikit": "^3.17.11",
     "zone.js": "~0.14.2"
   },
   "devDependencies": {
