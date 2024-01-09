@@ -1,0 +1,33 @@
+<div data-test="title" mat-dialog-title>Book
+  {{ data.title }}</div>
+<mat-dialog-content data-test="dialog">
+  <div data-test="price" class="uk-margin"><span
+      class="uk-text-large uk-text-bold uk-text-primary">${{ data.price }}</span>
+    per night</div>
+  <div data-test="check-in">
+    <mat-form-field>
+      <input required #checkInInput="ngModel" [min]="minCheckInDate" [max]="maxCheckInDate" matInput [matDatepicker]="checkInPicker"
+        placeholder="Choose check in date"
+        [(ngModel)]="checkIn">
+      <mat-datepicker-toggle matSuffix [for]="checkInPicker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #checkInPicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div data-test="check-out">
+    <mat-form-field>
+      <input required #checkOutInput="ngModel" [min]="minCheckOutDate" [max]="maxCheckOutDate" matInput [matDatepicker]="checkOutPicker"
+        placeholder="Choose check out date"
+        [(ngModel)]="checkOut">
+      <mat-datepicker-toggle matSuffix [for]="checkOutPicker">
+      </mat-datepicker-toggle>
+      <mat-datepicker #checkOutPicker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div data-test="total" class="uk-text-bold">
+    Total: ${{ calculateTotal(checkIn, checkOut,data.price) }}
+  </div>
+</mat-dialog-content >
+<div mat-dialog-actions data-test="book-button" class="uk-margin">
+  <button [disabled]="checkInInput.invalid || checkOutInput.invalid" (click)="bookHome()" class="uk-button uk-button-primary uk-button-large uk-width-1-1">Book Now</button>
+</div>
